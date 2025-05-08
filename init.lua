@@ -3,6 +3,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
+vim.opt.termguicolors = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -43,5 +44,8 @@ treesiter_config.setup({
   indent = { enable = true },
 })
 
-require("catppuccin").setup()
+require("catppuccin").setup({
+  flavour = "mocha", -- or "macchiato", "frappe", "latte"
+})
 vim.cmd.colorscheme "catppuccin"
+
