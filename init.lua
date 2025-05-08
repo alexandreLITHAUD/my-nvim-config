@@ -1,10 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.g.mapleader = " "
-vim.opt.termguicolors = true
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -21,31 +14,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
-}
-local opts = {}
+-- Basic VIM Options
+require("vim-options")
 
-require("lazy").setup(plugins, opts)
+-- Basic VIM Keymaps
+require("vim-keymaps")
 
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<leader>a', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- NVIM Plugins
+require("lazy").setup("plugins")
 
-local treesiter_config = require("nvim-treesitter.configs")
-treesiter_config.setup({
-  ensure_installed = {"c", "cpp", "lua", "ruby", "java", "go", "rust", "dockerfile", "javascript", "json", "yaml", "toml", "vim", "zig", "html", "cmake"},
-  highlight = { enable = true },
-  indent = { enable = true },
-})
 
-require("catppuccin").setup({
-  flavour = "mocha", -- or "macchiato", "frappe", "latte"
-})
-vim.cmd.colorscheme "catppuccin"
+
+
 
