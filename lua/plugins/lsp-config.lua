@@ -1,107 +1,142 @@
 return {
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    config = function()
-      require("mason").setup()
-    end
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup {
-        ensure_installed = {
-          "lua_ls",
-          "gopls",
-          "jdtls",
-          "clangd",
-          "rust_analyzer",
-          "bashls",
-          "pyright"
-        }
-      }
-    end
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"gopls",
+					"jdtls",
+					"clangd",
+					"rust_analyzer",
+					"bashls",
+					"pyright",
+				},
+			})
+		end,
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
+		config = function()
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					-- Formatters
+					"black", -- Python formatter
+					"stylua", -- Lua formatter
+					"prettier", -- JS/TS/Web formatter
+					"goimports", -- Go imports formatter
+					"shfmt", -- Shell formatter
+					"clang-format", -- C/C++ formatter
 
-      -- Configure diagnostic display
-      vim.diagnostic.config({
-        virtual_text = true, -- Enable inline diagnostic messages
-        signs = true,        -- Show signs in the sign column
-        underline = true,    -- Underline diagnostics
-        update_in_insert = false,
-        severity_sort = true,
-        float = {
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = "",
-        },
-      })
+					-- Linters
+					-- "ruff",            -- Python linter
+					-- "eslint_d",        -- JS/TS linter
+					"golangci-lint", -- Go linter
+					"pylint", -- Python linter
+					-- "shellcheck",      -- Shell linter
+					"markdownlint", -- Markdown linter
 
-      -- Change diagnostic symbols in the sign column
-      local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+					-- Add more as needed
+				},
+				auto_update = true,
+				run_on_start = true,
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local lspconfig = require("lspconfig")
 
-      local servers = {
-        lua_ls = {},
-        gopls = {},
-        jdtls = {},
-        clangd = {},
-        rust_analyzer = {},
-        bashls = {},
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = "basic",
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true
-              }
-            }
-          }
-        }
-      }
+			-- Configure diagnostic display
+			vim.diagnostic.config({
+				virtual_text = true, -- Enable inline diagnostic messages
+				signs = true, -- Show signs in the sign column
+				underline = true, -- Underline diagnostics
+				update_in_insert = false,
+				severity_sort = true,
+				float = {
+					border = "rounded",
+					source = "always",
+					header = "",
+					prefix = "",
+				},
+			})
 
-      for name, config in pairs(servers) do
-        lspconfig[name].setup(config)
-      end
+			-- Change diagnostic symbols in the sign column
+			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			end
 
-      local map = vim.keymap.set
-      local opts = { noremap = true, silent = true }
+			local servers = {
+				lua_ls = {},
+				gopls = {},
+				jdtls = {},
+				clangd = {},
+				rust_analyzer = {},
+				bashls = {},
+				pyright = {
+					settings = {
+						python = {
+							analysis = {
+								typeCheckingMode = "basic",
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+							},
+						},
+					},
+				},
+			}
 
-      -- Telescope pickers
-      map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-      map("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
-      map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
-      map("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-      map("n", "gS", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
+			for name, config in pairs(servers) do
+				lspconfig[name].setup(config)
+			end
 
-      -- LSP native functions
-      map("n", "K", vim.lsp.buf.hover, opts)
-      map("n", "<leader>rn", vim.lsp.buf.rename, opts)
-      map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-      map("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
-      map("n", "<leader>df", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, opts)
+			local map = vim.keymap.set
+			local opts = { noremap = true, silent = true }
 
-      -- Added formatting shortcuts
-      map("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts)
+			-- Telescope pickers
+			map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+			map("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
+			map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+			map("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+			map("n", "gS", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 
-      -- Go to next/prev diagnostic
-      map("n", "[d", vim.diagnostic.goto_prev, opts)
-      map("n", "]d", vim.diagnostic.goto_next, opts)
+			-- LSP native functions
+			map("n", "K", vim.lsp.buf.hover, opts)
+			map("n", "<leader>rn", vim.lsp.buf.rename, opts)
+			map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+			map("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
+			map("n", "<leader>df", function()
+				require("telescope.builtin").diagnostics({ bufnr = 0 })
+			end, opts)
 
-      -- Show diagnostics in a floating window
-      map("n", "<leader>e", vim.diagnostic.open_float, opts)
+			-- Added formatting shortcuts
+			map("n", "<leader>f", function()
+				vim.lsp.buf.format({ async = true })
+			end, opts)
 
-      -- Type definition
-      map("n", "<leader>td", vim.lsp.buf.type_definition, opts)
-    end
-  }
+			-- Go to next/prev diagnostic
+			map("n", "[d", vim.diagnostic.goto_prev, opts)
+			map("n", "]d", vim.diagnostic.goto_next, opts)
+
+			-- Show diagnostics in a floating window
+			map("n", "<leader>e", vim.diagnostic.open_float, opts)
+
+			-- Type definition
+			map("n", "<leader>td", vim.lsp.buf.type_definition, opts)
+		end,
+	},
 }
