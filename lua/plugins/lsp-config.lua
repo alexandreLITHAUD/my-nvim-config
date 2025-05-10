@@ -37,7 +37,6 @@ return {
 					"goimports", -- Go imports formatter
 					"shfmt", -- Shell formatter
 					"clang-format", -- C/C++ formatter
-
 					-- Linters
 					-- "ruff",            -- Python linter
 					-- "eslint_d",        -- JS/TS linter
@@ -45,7 +44,6 @@ return {
 					"pylint", -- Python linter
 					-- "shellcheck",      -- Shell linter
 					"markdownlint", -- Markdown linter
-
 					-- Add more as needed
 				},
 				auto_update = true,
@@ -55,6 +53,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			-- Add dependency for cmp-nvim-lsp
+			"hrsh7th/cmp-nvim-lsp",
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 
@@ -80,6 +82,9 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
+			-- Get capabilities for autocompletion
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			local servers = {
 				lua_ls = {},
 				gopls = {},
@@ -101,6 +106,8 @@ return {
 			}
 
 			for name, config in pairs(servers) do
+				-- Add capabilities to each server configuration
+				config.capabilities = capabilities
 				lspconfig[name].setup(config)
 			end
 
