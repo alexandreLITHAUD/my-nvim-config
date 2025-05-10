@@ -110,43 +110,4 @@ return {
 			end, { desc = "Enter insert mode and trigger completion" })
 		end,
 	},
-
-	-- Enhanced LSP setup to work with autocompletion
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-		},
-		config = function()
-			-- Setup LSP capabilities for autocompletion
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			-- Pass the capabilities to your server configurations
-			local lspconfig = require("lspconfig")
-			local servers = {
-				lua_ls = {},
-				gopls = {},
-				jdtls = {},
-				clangd = {},
-				rust_analyzer = {},
-				bashls = {},
-				pyright = {
-					settings = {
-						python = {
-							analysis = {
-								typeCheckingMode = "basic",
-								autoSearchPaths = true,
-								useLibraryCodeForTypes = true,
-							},
-						},
-					},
-				},
-			}
-
-			for server, config in pairs(servers) do
-				config.capabilities = capabilities
-				lspconfig[server].setup(config)
-			end
-		end,
-	},
 }

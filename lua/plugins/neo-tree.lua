@@ -11,6 +11,16 @@ return {
 	---@type neotree.Config?
 	opts = {},
 	config = function()
+		require("neo-tree").setup({
+			window = {
+				mappings = {
+					["<CR>"] = "open", -- current window
+					["v"] = "open_split", -- horizontal split
+					["s"] = "open_vsplit", -- vertical split
+					["t"] = "open_tabnew", -- new tab
+				},
+			},
+		})
 		vim.keymap.set("n", "<leader>z", ":Neotree filesystem reveal left<CR>", {})
 	end,
 }
