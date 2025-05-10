@@ -16,6 +16,11 @@ vim.keymap.set("n", "<leader>s<Down>", "<C-w>j", { desc = "Move to bottom window
 vim.keymap.set("n", "<leader>s<Up>", "<C-w>k", { desc = "Move to top window" })
 vim.keymap.set("n", "<leader>s<Right>", "<C-w>l", { desc = "Move to right window" })
 
+vim.keymap.set("v", "<leader>s<Left>", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("v", "<leader>s<Down>", "<C-w>j", { desc = "Move to bottom window" })
+vim.keymap.set("v", "<leader>s<Up>", "<C-w>k", { desc = "Move to top window" })
+vim.keymap.set("v", "<leader>s<Right>", "<C-w>l", { desc = "Move to right window" })
+
 -- Resize splits with <leader>r + arrow keys
 vim.keymap.set("n", "<leader>r<Up>", ":resize +5<CR>", { desc = "Increase height" })
 vim.keymap.set("n", "<leader>r<Down>", ":resize -5<CR>", { desc = "Decrease height" })
