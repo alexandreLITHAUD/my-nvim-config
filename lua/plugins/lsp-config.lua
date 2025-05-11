@@ -18,6 +18,7 @@ return {
 					"rust_analyzer",
 					"bashls",
 					"pyright",
+					"yamlls",
 				},
 			})
 		end,
@@ -37,6 +38,7 @@ return {
 					"goimports", -- Go imports formatter
 					"shfmt", -- Shell formatter
 					"clang-format", -- C/C++ formatter
+					"yamlfmt", -- Yaml formatter
 					-- Linters
 					-- "ruff",            -- Python linter
 					-- "eslint_d",        -- JS/TS linter
@@ -44,7 +46,7 @@ return {
 					"pylint", -- Python linter
 					-- "shellcheck",      -- Shell linter
 					"markdownlint", -- Markdown linter
-					-- Add more as needed
+					"yamllint", -- YAML linter
 				},
 				auto_update = true,
 				run_on_start = true,
@@ -100,6 +102,20 @@ return {
 								autoSearchPaths = true,
 								useLibraryCodeForTypes = true,
 							},
+						},
+					},
+				},
+				yamlls = {
+					settings = {
+						yaml = {
+							schemas = {
+								kubernetes = "*.k8s.yaml",
+								["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+								["https://json.schemastore.org/gitlab-ci.json"] = "/*gitlab-ci*.yaml",
+							},
+							validate = true,
+							completion = true,
+							hover = true,
 						},
 					},
 				},

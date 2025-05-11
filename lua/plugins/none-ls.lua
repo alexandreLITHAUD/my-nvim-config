@@ -30,6 +30,10 @@ return {
 
 				-- Markdown
 				null_ls.builtins.formatting.mdformat, -- Formatter
+
+				-- Yaml
+				null_ls.builtins.formatting.yamlfmt, -- Formatter
+				null_ls.builtins.diagnostics.yamllint, -- Linter
 			},
 			-- Setup keybindings for formatting
 			on_attach = function(client, bufnr)
