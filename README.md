@@ -42,6 +42,7 @@ Here is the list of the LSPs that I have installed for the moment (Probably wont
 - bashls: Bash
 - pyright: Python
 - yamlls: YAML
+- dockerls: Dockerfile
 
 I also have formatters and some linters. You can check them in the none-ls configuration [here](./lua/plugins/none-ls.lua)
 

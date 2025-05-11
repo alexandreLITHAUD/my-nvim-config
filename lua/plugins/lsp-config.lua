@@ -19,6 +19,7 @@ return {
 					"bashls",
 					"pyright",
 					"yamlls",
+					"dockerls",
 				},
 			})
 		end,
@@ -40,13 +41,11 @@ return {
 					"clang-format", -- C/C++ formatter
 					"yamlfmt", -- Yaml formatter
 					-- Linters
-					-- "ruff",            -- Python linter
-					-- "eslint_d",        -- JS/TS linter
 					"golangci-lint", -- Go linter
 					"pylint", -- Python linter
-					-- "shellcheck",      -- Shell linter
 					"markdownlint", -- Markdown linter
 					"yamllint", -- YAML linter
+					"hadolint", -- Dockerfile linter
 				},
 				auto_update = true,
 				run_on_start = true,
@@ -119,6 +118,7 @@ return {
 						},
 					},
 				},
+				dockerls = {},
 			}
 
 			for name, config in pairs(servers) do

@@ -34,6 +34,9 @@ return {
 				-- Yaml
 				null_ls.builtins.formatting.yamlfmt, -- Formatter
 				null_ls.builtins.diagnostics.yamllint, -- Linter
+
+				-- Dockerfile
+				null_ls.builtins.diagnostics.hadolint, -- Linter
 			},
 			-- Setup keybindings for formatting
 			on_attach = function(client, bufnr)
