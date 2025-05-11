@@ -41,6 +41,7 @@ Here is the list of the LSPs that I have installed for the moment (Probably wont
 - rust_analyzer: Rust
 - bashls: Bash
 - pyright: Python
+- yamlls: YAML
 
 I also have formatters and some linters. You can check them in the none-ls configuration [here](./lua/plugins/none-ls.lua)
 
