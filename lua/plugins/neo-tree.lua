@@ -20,6 +20,18 @@ return {
 					["t"] = "open_tabnew", -- new tab
 				},
 			},
+			filesystem = {
+				filtered_items = {
+					visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
+					hide_dotfiles = false,
+					hide_gitignored = false,
+					hide_by_name = {
+						".git",
+						".DS_Store",
+						"thumbs.db",
+					},
+				},
+			},
 		})
 		vim.keymap.set("n", "<leader>z", ":Neotree filesystem reveal left<CR>", {})
 	end,
