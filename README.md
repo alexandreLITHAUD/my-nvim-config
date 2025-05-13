@@ -29,6 +29,9 @@ Here is the list of the plugins that I use in this configuration :
 - [nvim-lsp-config](https://github.com/neovim/nvim-lspconfig): for installing LSPs
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp): for enableling autocompletion
 - [luasnip](https://github.com/L3MON4D3/LuaSnip): for enableling snippets
+- [todo-comments](https://github.com/folke/todo-comments.nvim): for adding todos comments
+- [dashboard](https://github.com/nvimdev/dashboard-nvim): for having a nice dashboard
+- [neotest](https://github.com/nvim-neotest/neotest): for launching test on my neovim
 
 ## LSPs Added
 
@@ -53,10 +56,10 @@ Here is the keymaps that I use:
 
 ### Telescope
 
-- \<leader\>a -> find_files
-- \<leader>\fg -> live_grep
-- \<leader>\dl -> lsp diagnostic
-- \<leader>\df -> lsp diagnostic nobuffer
+- \<leader>a -> find_files
+- \<leader>fg -> live_grep
+- \<leader>dl -> lsp diagnostic
+- \<leader>df -> lsp diagnostic nobuffer
 - gd -> lsp definition
 - gr -> lsp reference
 - gi -> lsp implementation
@@ -65,31 +68,42 @@ Here is the keymaps that I use:
 
 ### Neo-Tree
 
-- \<leader>\z -> open tree
+- \<leader>z -> open tree
 - v -> split vertical
 - s -> split horizontal
 
 ### Comments
 
-- \<leader>\\/ -> comment or decomments line or selected lines
+- \<leader>/ -> comment or decomments line or selected lines
 
 ### LSPs
 
 - K -> Lsp doc hover
-- \<leader>\rn -> lsp rename
-- \<leader>\ca -> lsp code action
-- \<leader>\f -> lsp formatting
-- \<leader>\e -> lsp show diagnostic
-- \<leader>\td -> lsp type definition
+- \<leader>rn -> lsp rename
+- \<leader>ca -> lsp code action
+- \<leader>f -> lsp formatting
+- \<leader>e -> lsp show diagnostic
+- \<leader>td -> lsp type definition
 - [d -> lsp diagnostic prev
 - ]d -> lsp diagnostic next
 
 ### Autocompletion
 
-- \<C-Space>\ -> call autocomplete
-- \<C-e>\ -> abort autocomplete
-- \<C-b>\ -> revert doc autocomplete
-- \<C-f>\ -> forward doc autocomplete
+- \<C-Space> -> call autocomplete
+- \<C-e> -> abort autocomplete
+- \<C-b> -> revert doc autocomplete
+- \<C-f> -> forward doc autocomplete
+
+### Todo Comments
+
+- \<leader>st -> call telescope todos
+
+### Neo Test
+
+- \<leader>tt -> run nearest tests
+- \<leader>tf -> run test file
+- \<leader>to -> open test output
+- \<leader>ts -> toggle test summary
 
 ### Vim Basic Keymaps
 
