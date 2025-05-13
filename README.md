@@ -1,114 +1,127 @@
-# My Personal Nvim Configuration
+# 🧠 My Personal Neovim Configuration
 
-> This is the configuration I use for my neovim
+> A fast, clean, and modern Neovim setup tailored to my development workflow.
 
-## Tools needed
+## 🧰 Requirements
 
-For this conf you will need a couple of tools as well as a nerd Font. I personally Use [**FiraCode Nerd Font (Regular)**](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
-The tools needed are :
+To run this configuration properly, you’ll need a few tools and a Nerd Font. I personally use [**FiraCode Nerd Font (Regular)**](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
 
-- [neovim](https://github.com/neovim/neovim)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [curl](https://github.com/curl/curl)
-- [git](https://github.com/git/git)
+### Required Tools:
 
-## Plugins Installed
+- [Neovim](https://github.com/neovim/neovim) (v0.9+ recommended)
+- [ripgrep](https://github.com/BurntSushi/ripgrep) – for Telescope search
+- [curl](https://github.com/curl/curl) – for plugin installation and updates
+- [git](https://github.com/git/git) – for pulling plugins
 
-Here is the list of the plugins that I use in this configuration :
+---
 
-- [catppuccin](https://github.com/catppuccin/nvim): for clean and goos looking nvim theme
-- [comments](https://github.com/numToStr/Comment.nvim): for commenting parts of the code direclty using vim motions
-- [telescope](https://github.com/nvim-telescope/telescope.nvim): for easily accessing file and live grep
-- [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim): for accessing the filetree
-- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter): for aparsing asl from different language
-- [lualine](https://github.com/nvim-lualine/lualine.nvim): for a cool info line at the bottom
-- [none-ls](https://github.com/nvimtools/none-ls.nvim): for ealisy adding formatter and linter to nvim using Mason
-- [mason](https://github.com/mason-org/mason.nvim): for installing all th eneeded lsp and tools
-- [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim): for linking mason and the LSPs
-- [mason-tools-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim): for downloading and checking the mason state
-- [nvim-lsp-config](https://github.com/neovim/nvim-lspconfig): for installing LSPs
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp): for enableling autocompletion
-- [luasnip](https://github.com/L3MON4D3/LuaSnip): for enableling snippets
-- [todo-comments](https://github.com/folke/todo-comments.nvim): for adding todos comments
-- [dashboard](https://github.com/nvimdev/dashboard-nvim): for having a nice dashboard
-- [neotest](https://github.com/nvim-neotest/neotest): for launching test on my neovim
+## 🔌 Plugins
 
-## LSPs Added
+Here’s the list of plugins included in this setup:
 
-Here is the list of the LSPs that I have installed for the moment (Probably wont be up to date):
+| Plugin | Purpose |
+|--------|---------|
+| [**catppuccin**](https://github.com/catppuccin/nvim) | Aesthetic and clean color scheme |
+| [**Comment.nvim**](https://github.com/numToStr/Comment.nvim) | Easy code commenting with motions |
+| [**Telescope**](https://github.com/nvim-telescope/telescope.nvim) | File finder, live grep, and more |
+| [**Neo-tree**](https://github.com/nvim-neo-tree/neo-tree.nvim) | A modern file explorer |
+| [**Treesitter**](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting and code parsing |
+| [**Lualine**](https://github.com/nvim-lualine/lualine.nvim) | Status line with useful info |
+| [**None-LS**](https://github.com/nvimtools/none-ls.nvim) | Integrate linters/formatters with ease |
+| [**Mason**](https://github.com/mason-org/mason.nvim) | Install/manage LSPs, DAPs, and tools |
+| [**mason-lspconfig**](https://github.com/mason-org/mason-lspconfig.nvim) | Bridge between Mason and LSP |
+| [**mason-tool-installer**](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) | Auto-install language tools |
+| [**nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig) | Configure built-in LSP support |
+| [**nvim-cmp**](https://github.com/hrsh7th/nvim-cmp) | Autocompletion engine |
+| [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip) | Snippet engine |
+| [**todo-comments**](https://github.com/folke/todo-comments.nvim) | Highlight and search TODO/FIXME/etc |
+| [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim) | Customizable start screen |
+| [**neotest**](https://github.com/nvim-neotest/neotest) | Testing integration for Neovim |
 
-- lua_ls: Lua
-- gopls: Golang
-- jdtls: Java
-- clangd: C++
-- rust_analyzer: Rust
-- bashls: Bash
-- pyright: Python
-- yamlls: YAML
-- dockerls: Dockerfile
-- terraformls: Terraform
+---
 
-I also have formatters and some linters. You can check them in the none-ls configuration [here](./lua/plugins/none-ls.lua)
+## 🧠 LSPs and Tools
 
-## Keymaps
+Here's a snapshot of the language servers I currently use (subject to change):
 
-Here is the keymaps that I use:
+- **lua_ls** → Lua
+- **gopls** → Go
+- **jdtls** → Java
+- **clangd** → C++
+- **rust_analyzer** → Rust
+- **bashls** → Bash
+- **pyright** → Python
+- **yamlls** → YAML
+- **dockerls** → Docker
+- **terraformls** → Terraform
 
-### Telescope
+I also use formatters and linters via `none-ls`. You can find the full list in [`lua/plugins/none-ls.lua`](./lua/plugins/none-ls.lua).
 
-- \<leader>a -> find_files
-- \<leader>fg -> live_grep
-- \<leader>dl -> lsp diagnostic
-- \<leader>df -> lsp diagnostic nobuffer
-- gd -> lsp definition
-- gr -> lsp reference
-- gi -> lsp implementation
-- gs -> lsp document symbol
-- gS -> lsp workspace symbol
+---
 
-### Neo-Tree
+## 🎹 Keymaps
 
-- \<leader>z -> open tree
-- v -> split vertical
-- s -> split horizontal
+Here are the custom key mappings I use in this config:
 
-### Comments
+### 🔭 Telescope
 
-- \<leader>/ -> comment or decomments line or selected lines
+- `<leader>a` → Find files  
+- `<leader>fg` → Live grep  
+- `<leader>dl` → Show LSP diagnostics (buffer)  
+- `<leader>df` → Show LSP diagnostics (global)  
+- `gd` → Go to definition  
+- `gr` → Go to references  
+- `gi` → Go to implementation  
+- `gs` → Document symbols  
+- `gS` → Workspace symbols  
 
-### LSPs
+### 🌳 Neo-tree
 
-- K -> Lsp doc hover
-- \<leader>rn -> lsp rename
-- \<leader>ca -> lsp code action
-- \<leader>f -> lsp formatting
-- \<leader>e -> lsp show diagnostic
-- \<leader>td -> lsp type definition
-- [d -> lsp diagnostic prev
-- ]d -> lsp diagnostic next
+- `<leader>z` → Toggle file tree  
+- `v` → Vertical split  
+- `s` → Horizontal split  
 
-### Autocompletion
+### 💬 Comments
 
-- \<C-Space> -> call autocomplete
-- \<C-e> -> abort autocomplete
-- \<C-b> -> revert doc autocomplete
-- \<C-f> -> forward doc autocomplete
+- `<leader>/` → Toggle comment on line or selection  
 
-### Todo Comments
+### 🧠 LSP
 
-- \<leader>st -> call telescope todos
+- `K` → Show hover documentation  
+- `<leader>rn` → Rename symbol  
+- `<leader>ca` → Code actions  
+- `<leader>f` → Format buffer  
+- `<leader>e` → Show diagnostics  
+- `<leader>td` → Go to type definition  
+- `[d` / `]d` → Previous / next diagnostic  
 
-### Neo Test
+### 🤖 Autocompletion
 
-- \<leader>tt -> run nearest tests
-- \<leader>tf -> run test file
-- \<leader>to -> open test output
-- \<leader>ts -> toggle test summary
+- `<C-Space>` → Trigger autocomplete  
+- `<C-e>` → Abort autocomplete  
+- `<C-b>` → Scroll docs up  
+- `<C-f>` → Scroll docs down  
 
-### Vim Basic Keymaps
+### 📝 TODO Comments
 
-The rest of the vim keymaps are in the [vim-keymaps.lua](./lua/vim-keymaps.lua) file.
+- `<leader>st` → Telescope search for TODOs  
 
-## Note
+### ✅ NeoTest
 
-Feel free to use, fork or modify this configuration to you will. And I would love to have some advice if you see things that can be improved !
+- `<leader>tt` → Run nearest test  
+- `<leader>tf` → Run test file  
+- `<leader>to` → Show test output  
+- `<leader>ts` → Toggle test summary  
+
+---
+
+### ⚙️ Vim Basics
+
+Default Vim keymaps and other core bindings are defined in [`lua/vim-keymaps.lua`](./lua/vim-keymaps.lua).
+
+---
+
+## 💡 Final Note
+
+Feel free to **use**, **fork**, or **customize** this configuration to suit your needs.  
+If you have suggestions, improvements, or cool plugin ideas, I’d love to hear them!
