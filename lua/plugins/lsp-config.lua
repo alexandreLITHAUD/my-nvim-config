@@ -20,6 +20,7 @@ return {
 					"pyright",
 					"yamlls",
 					"dockerls",
+					"terraformls",
 				},
 			})
 		end,
@@ -119,6 +120,7 @@ return {
 					},
 				},
 				dockerls = {},
+				terraformls = {},
 			}
 
 			for name, config in pairs(servers) do

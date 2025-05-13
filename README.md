@@ -43,6 +43,7 @@ Here is the list of the LSPs that I have installed for the moment (Probably wont
 - pyright: Python
 - yamlls: YAML
 - dockerls: Dockerfile
+- terraformls: Terraform
 
 I also have formatters and some linters. You can check them in the none-ls configuration [here](./lua/plugins/none-ls.lua)
 
