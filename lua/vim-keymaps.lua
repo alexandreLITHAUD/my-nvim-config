@@ -26,3 +26,10 @@ vim.keymap.set("n", "<leader>r<Up>", ":resize +5<CR>", { desc = "Increase height
 vim.keymap.set("n", "<leader>r<Down>", ":resize -5<CR>", { desc = "Decrease height" })
 vim.keymap.set("n", "<leader>r<Right>", ":vertical resize +5<CR>", { desc = "Increase width" })
 vim.keymap.set("n", "<leader>r<Left>", ":vertical resize -5<CR>", { desc = "Decrease width" })
+
+-- Copy to clipboard
+vim.keymap.set("v", "<C-c>", '"+y', { desc = "Copy to clipboard", noremap = true, silent = true })
+
+-- Copy all
+vim.keymap.set("n", "<C-a>", "ggvG$", { desc = "Copy all" })
+vim.keymap.set("v", "<C-a>", "ggvG$", { desc = "Copy all" })

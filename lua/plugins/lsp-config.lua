@@ -109,9 +109,23 @@ return {
 					settings = {
 						yaml = {
 							schemas = {
-								kubernetes = "*.k8s.yaml",
 								["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
 								["https://json.schemastore.org/gitlab-ci.json"] = "/*gitlab-ci*.yaml",
+								["https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json"] = {
+									"/*k8s*.yaml",
+									"/*k8s*.yml",
+									"/*kubernetes*.yaml",
+									"/*kubernetes*.yml",
+									"/*.k8s.yaml",
+									"/*.k8s.yml",
+								},
+								["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {
+									"*docker-compose*.yml",
+									"*docker-compose*.yaml",
+								},
+								["https://json.schemastore.org/helmfile.json"] = "*helmfile*.yaml",
+								["https://json.schemastore.org/chart.json"] = "Chart.yaml",
+								["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
 							},
 							validate = true,
 							completion = true,
