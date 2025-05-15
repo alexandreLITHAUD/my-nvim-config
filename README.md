@@ -37,6 +37,7 @@ Here’s the list of plugins included in this setup:
 | [**todo-comments**](https://github.com/folke/todo-comments.nvim) | Highlight and search TODO/FIXME/etc |
 | [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim) | Customizable start screen |
 | [**neotest**](https://github.com/nvim-neotest/neotest) | Testing integration for Neovim |
+| [**windsurf**](https://github.com/Exafunction/windsurf.nvim) | Ai integration for Nvim |
 
 ---
 
