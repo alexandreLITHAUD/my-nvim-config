@@ -31,5 +31,5 @@ vim.keymap.set("n", "<leader>r<Left>", ":vertical resize -5<CR>", { desc = "Decr
 vim.keymap.set("v", "<C-c>", '"+y', { desc = "Copy to clipboard", noremap = true, silent = true })
 
 -- Copy all
-vim.keymap.set("n", "<C-a>", "ggvG$", { desc = "Copy all" })
-vim.keymap.set("v", "<C-a>", "ggvG$", { desc = "Copy all" })
+vim.keymap.set("n", "<C-a>", "gg0vG$", { desc = "Copy all" })
+vim.keymap.set("v", "<C-a>", "gg0vG$", { desc = "Copy all" })
