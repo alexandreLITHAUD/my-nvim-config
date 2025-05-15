@@ -13,24 +13,29 @@ return {
 
 			local status = virtual_text.status()
 
-			-- For waiting state (*)
-			if status == "waiting" then
+			-- For waiting state
+			if status.state == "waiting" then
 				return "󱙺 Searching..."
 
-			-- For no suggestions (0)
-			elseif status == "idle" then
+			-- For idle state (no active suggestions)
+			elseif status.state == "idle" then
 				return " "
 
-			-- For suggestions (x/y)
-			elseif status == "completions" and status.total > 0 then
-				return string.format("%d/%d", status.current, status.total)
+			-- For when suggestions are available
+			elseif status.state == "completions" then
+				if status.total and status.total > 0 and status.current then
+					return string.format("󱙸 %d/%d", status.current, status.total)
+				else
+					return "󱙷 No suggestions"
+				end
 
-			-- For no suggestions (0)
+			-- Fallback
 			else
-				return "󱙷 No suggestions"
+				return ""
 			end
 		end
 
+		-- Set up lualine configuration
 		require("lualine").setup({
 			options = {
 				theme = "dracula",
@@ -43,7 +48,21 @@ return {
 				lualine_b = { "branch", "diff" },
 				lualine_c = { { "filename", path = 1 } },
 				lualine_x = {
-					windsurf_status,
+					{
+						windsurf_status,
+						color = function()
+							local status = require("codeium.virtual_text").status()
+							if status.state == "waiting" then
+								return { fg = "#bd93f9" } -- Purple for waiting
+							elseif status.state == "completions" and status.total and status.total > 0 then
+								return { fg = "#50fa7b" } -- Green for suggestions
+							elseif status.state == "completions" then
+								return { fg = "#ff5555" } -- Red for no suggestions
+							else
+								return {} -- Default color
+							end
+						end,
+					},
 					"encoding",
 					"fileformat",
 					"filetype",
@@ -60,5 +79,13 @@ return {
 				lualine_z = {},
 			},
 		})
+
+		-- Set up the refresh callback to update lualine whenever Windsurf status changes
+		local ok, virtual_text = pcall(require, "codeium.virtual_text")
+		if ok then
+			virtual_text.set_statusbar_refresh(function()
+				require("lualine").refresh()
+			end)
+		end
 	end,
 }
