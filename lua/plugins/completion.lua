@@ -8,12 +8,10 @@ return {
 			"hrsh7th/cmp-buffer", -- Buffer completion
 			"hrsh7th/cmp-path", -- Path completion
 			"hrsh7th/cmp-cmdline", -- Command line completion
-
 			-- Snippets
 			"L3MON4D3/LuaSnip", -- Snippet engine
 			"saadparwaiz1/cmp_luasnip", -- Snippet completion source
 			"rafamadriz/friendly-snippets", -- Snippet collection
-
 			-- Icons
 			"onsails/lspkind.nvim", -- VSCode-like pictograms
 		},
@@ -21,10 +19,8 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
-
 			-- Load friendly-snippets
 			require("luasnip.loaders.from_vscode").lazy_load()
-
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -37,24 +33,7 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
+					-- Tab mappings removed
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
@@ -83,7 +62,6 @@ return {
 					ghost_text = true,
 				},
 			})
-
 			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore)
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -91,7 +69,6 @@ return {
 					{ name = "buffer" },
 				},
 			})
-
 			-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore)
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -101,7 +78,6 @@ return {
 					{ name = "cmdline" },
 				}),
 			})
-
 			vim.keymap.set("n", "<C-Space>", function()
 				vim.api.nvim_feedkeys("a", "n", false) -- enter insert mode (append)
 				vim.schedule(function()
