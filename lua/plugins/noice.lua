@@ -48,16 +48,18 @@ return {
 			},
 		})
 
-		-- Register with which-key
+		-- Create a group for Neotest keymaps
 		local wk = require("which-key")
+
+		-- Normal mode mappings
 		wk.register({
-			t = {
-				name = "+tests",
-				t = "Run nearest test",
-				f = "Run test file",
-				o = "Open test output",
-				s = "Toggle test summary",
+			["<leader>t"] = {
+				name = "Tests",
+				["t"] = { "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test" },
+				["f"] = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run test file" },
+				["o"] = { "<cmd>lua require('neotest').output.open({ enter = true })<CR>", "Open test output" },
+				["s"] = { "<cmd>lua require('neotest').summary.toggle()<CR>", "Toggle test summary" },
 			},
-		}, { prefix = "<leader>" })
+		})
 	end,
 }
