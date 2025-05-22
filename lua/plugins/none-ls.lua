@@ -42,7 +42,7 @@ return {
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
 					-- Format with <leader>f
-					vim.keymap.set("n", "<leader>f", function()
+					vim.keymap.set("n", "<leader>cf", function()
 						vim.lsp.buf.format({
 							async = true,
 							bufnr = bufnr,

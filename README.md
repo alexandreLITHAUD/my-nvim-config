@@ -36,7 +36,6 @@ Here’s the list of plugins included in this setup:
 | [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)                                       | Snippet engine                                           |
 | [**todo-comments**](https://github.com/folke/todo-comments.nvim)                         | Highlight and search TODO/FIXME/etc                      |
 | [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim)                          | Customizable start screen                                |
-| [**neotest**](https://github.com/nvim-neotest/neotest)                                   | Testing integration for Neovim (Destroyed fo the moment) |
 | [**windsurf**](https://github.com/Exafunction/windsurf.nvim)                             | Ai integration for Nvim                                  |
 | [**noice**](https://github.com/folke/noice.nvim)                                         | Better notifications                                     |
 | [**which-key**](https://github.com/folke/which-key.nvim)                                 | Show key mappings                                        |
@@ -69,10 +68,10 @@ Here are the custom key mappings I use in this config:
 
 ### 🔭 Telescope
 
-- `<leader>a` → Find files
+- `<leader>fa` → Find files
 - `<leader>fg` → Live grep
-- `<leader>dl` → Show LSP diagnostics (buffer)
-- `<leader>df` → Show LSP diagnostics (global)
+- `<leader>gl` → Show LSP diagnostics (buffer)
+- `<leader>fd` → Show LSP diagnostics (global)
 - `gd` → Go to definition
 - `gr` → Go to references
 - `gi` → Go to implementation
@@ -91,13 +90,12 @@ Here are the custom key mappings I use in this config:
 
 ### 🧠 LSP
 
-- `K` → Show hover documentation
-- `<leader>rn` → Rename symbol
+- `<leader>ck` → Show hover documentation
+- `<leader>cr` → Rename symbol
 - `<leader>ca` → Code actions
-- `<leader>f` → Format buffer
-- `<leader>e` → Show diagnostics
-- `<leader>td` → Go to type definition
-- `[d` / `]d` → Previous / next diagnostic
+- `<leader>cf` → Format buffer
+- `<leader>ce` → Show diagnostics
+- `<leader>ct` → Go to type definition
 
 ### 🤖 Autocompletion
 
@@ -108,14 +106,7 @@ Here are the custom key mappings I use in this config:
 
 ### 📝 TODO Comments
 
-- `<leader>st` → Telescope search for TODOs
-
-### ✅ NeoTest
-
-- `<leader>tt` → Run nearest test
-- `<leader>tf` → Run test file
-- `<leader>to` → Show test output
-- `<leader>ts` → Toggle test summary
+- `<leader>ts` → Telescope search for TODOs
 
 ### 🔥 Noice
 

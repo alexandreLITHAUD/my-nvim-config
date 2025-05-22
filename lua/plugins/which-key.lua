@@ -86,5 +86,8 @@ return {
 
 		-- Add TodoComments custom keymaps
 		which_key.add(require("keymaps.todo-comments").keys)
+
+		-- Add Noice custom keymaps
+		which_key.add(require("keymaps.noice").keys)
 	end,
 }

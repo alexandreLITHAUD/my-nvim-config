@@ -81,35 +81,6 @@ return {
 			timeout = 3000,
 		})
 
-		-- Set up keymaps for noice
-		local wk = require("which-key")
-
-		-- Normal mode mappings
-		wk.register({
-			["<leader>n"] = {
-				name = "Noice",
-				["n"] = { "<cmd>Noice<CR>", "Toggle Noice UI" },
-				["l"] = { "<cmd>Noice last<CR>", "Show last message" },
-				["h"] = { "<cmd>Noice history<CR>", "Show message history" },
-				["d"] = { "<cmd>Noice dismiss<CR>", "Dismiss all messages" },
-				["e"] = { "<cmd>Noice errors<CR>", "Show error messages" },
-				["t"] = { "<cmd>Noice telescope<CR>", "Show messages in Telescope" },
-			},
-		})
-
-		-- Add keymaps to scroll through documentation
-		vim.keymap.set({ "n", "i", "s" }, "<c-f>", function()
-			if not require("noice.lsp").scroll(4) then
-				return "<c-f>"
-			end
-		end, { silent = true, expr = true })
-
-		vim.keymap.set({ "n", "i", "s" }, "<c-b>", function()
-			if not require("noice.lsp").scroll(-4) then
-				return "<c-b>"
-			end
-		end, { silent = true, expr = true })
-
 		-- Set up custom highlights for noice
 		-- Try to get colors from your existing theme or config
 		local colors
