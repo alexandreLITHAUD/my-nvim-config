@@ -2,13 +2,13 @@
 local M = {}
 
 M.lsp_keys = {
-	{ "<leader>l", group = "lsp" },
-	{ "<leader>ld", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-	{ "<leader>lr", vim.lsp.buf.rename, desc = "Rename symbol" },
-	{ "<leader>la", vim.lsp.buf.code_action, desc = "Code actions" },
-	{ "<leader>lk", vim.lsp.buf.hover, desc = "Hover" },
-	{ "<leader>le", vim.diagnostic.open_float, desc = "Show diagnostics" },
-	{ "<leader>lt", vim.lsp.buf.type_definition, desc = "Type definition" },
+	{ "<leader>c", group = "lsp" },
+	{ "<leader>cd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
+	{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename symbol" },
+	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code actions" },
+	{ "<leader>ck", vim.lsp.buf.hover, desc = "Hover" },
+	{ "<leader>ce", vim.diagnostic.open_float, desc = "Show diagnostics" },
+	{ "<leader>ct", vim.lsp.buf.type_definition, desc = "Type definition" },
 }
 
 M.tlsp_keys = {

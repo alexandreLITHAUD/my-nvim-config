@@ -14,18 +14,7 @@ return {
 			-- Load custom snippets from your snippets directory
 			require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 
-			-- Mapping to jump backward/forward in snippet
-			vim.keymap.set({ "i", "s" }, "<C-j>", function()
-				if luasnip.jumpable(1) then
-					luasnip.jump(1)
-				end
-			end, { silent = true })
-
-			vim.keymap.set({ "i", "s" }, "<C-k>", function()
-				if luasnip.jumpable(-1) then
-					luasnip.jump(-1)
-				end
-			end, { silent = true })
+			require("keymaps.snippets").setup()
 
 			-- Add your custom snippets here
 			luasnip.add_snippets("all", {
@@ -69,7 +58,6 @@ return {
 		},
 		config = function()
 			require("telescope").load_extension("luasnip")
-			vim.keymap.set("n", "<leader>ss", "<cmd>Telescope luasnip<cr>", { desc = "Search Snippets" })
 		end,
 	},
 }

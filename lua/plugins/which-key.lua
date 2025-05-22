@@ -80,5 +80,11 @@ return {
 		-- Add LSP Config custom keymaps
 		which_key.add(require("keymaps.lsp").lsp_keys)
 		which_key.add(require("keymaps.lsp").tlsp_keys)
+
+		-- Add Snippets custom keymaps
+		which_key.add(require("keymaps.snippets").keys)
+
+		-- Add TodoComments custom keymaps
+		which_key.add(require("keymaps.todo-comments").keys)
 	end,
 }
