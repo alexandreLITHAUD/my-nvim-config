@@ -67,5 +67,11 @@ return {
 
 		-- Add comment custom keymaps
 		which_key.add(require("keymaps.comment").keys)
+
+		-- Add auto-completion custom keymaps
+		which_key.add(require("keymaps.completion").keys)
+
+		-- Add Neotree custom keymaps
+		which_key.add(require("keymaps.neo-tree").keys)
 	end,
 }

@@ -33,6 +33,5 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>z", ":Neotree filesystem reveal left<CR>", {})
 	end,
 }
