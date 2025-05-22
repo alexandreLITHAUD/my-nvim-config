@@ -14,8 +14,6 @@ return {
 			-- Load custom snippets from your snippets directory
 			require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 
-			require("keymaps.snippets").setup()
-
 			-- Add your custom snippets here
 			luasnip.add_snippets("all", {
 				-- Available in all file types
