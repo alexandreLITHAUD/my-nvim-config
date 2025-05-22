@@ -142,40 +142,6 @@ return {
 				config.capabilities = capabilities
 				lspconfig[name].setup(config)
 			end
-
-			local map = vim.keymap.set
-			local opts = { noremap = true, silent = true }
-
-			-- Telescope pickers
-			map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-			map("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
-			map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
-			map("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-			map("n", "gS", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
-
-			-- LSP native functions
-			map("n", "K", vim.lsp.buf.hover, opts)
-			map("n", "<leader>rn", vim.lsp.buf.rename, opts)
-			map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-			map("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
-			map("n", "<leader>df", function()
-				require("telescope.builtin").diagnostics({ bufnr = 0 })
-			end, opts)
-
-			-- Added formatting shortcuts
-			map("n", "<leader>f", function()
-				vim.lsp.buf.format({ async = true })
-			end, opts)
-
-			-- Go to next/prev diagnostic
-			map("n", "[d", vim.diagnostic.goto_prev, opts)
-			map("n", "]d", vim.diagnostic.goto_next, opts)
-
-			-- Show diagnostics in a floating window
-			map("n", "<leader>e", vim.diagnostic.open_float, opts)
-
-			-- Type definition
-			map("n", "<leader>td", vim.lsp.buf.type_definition, opts)
 		end,
 	},
 }

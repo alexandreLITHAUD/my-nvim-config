@@ -73,5 +73,12 @@ return {
 
 		-- Add Neotree custom keymaps
 		which_key.add(require("keymaps.neo-tree").keys)
+
+		-- Add ToggleTerm custom keymaps
+		which_key.add(require("keymaps.toggleterm").keys)
+
+		-- Add LSP Config custom keymaps
+		which_key.add(require("keymaps.lsp").lsp_keys)
+		which_key.add(require("keymaps.lsp").tlsp_keys)
 	end,
 }
