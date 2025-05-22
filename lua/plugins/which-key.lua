@@ -58,5 +58,14 @@ return {
 				v = { "j", "k" },
 			},
 		})
+
+		-- Add vim core custom keymaps
+		which_key.add(require("keymaps.vim-core").keys)
+
+		-- Add telescope custom keymaps
+		which_key.add(require("keymaps.telescope").keys)
+
+		-- Add comment custom keymaps
+		which_key.add(require("keymaps.comment").keys)
 	end,
 }

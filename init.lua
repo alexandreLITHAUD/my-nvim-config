@@ -20,8 +20,5 @@ vim.opt.rtp:prepend(lazypath)
 -- Basic VIM Options
 require("vim-options")
 
--- Basic VIM Keymaps
-require("vim-keymaps")
-
 -- NVIM Plugins
 require("lazy").setup("plugins")
