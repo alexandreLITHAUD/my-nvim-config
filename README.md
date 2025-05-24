@@ -19,27 +19,28 @@ To run this configuration properly, you’ll need a few tools and a Nerd Font. I
 
 Here’s the list of plugins included in this setup:
 
-| Plugin                                                                                   | Purpose                                                  |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [**catppuccin**](https://github.com/catppuccin/nvim)                                     | Aesthetic and clean color scheme                         |
-| [**Comment.nvim**](https://github.com/numToStr/Comment.nvim)                             | Easy code commenting with motions                        |
-| [**Telescope**](https://github.com/nvim-telescope/telescope.nvim)                        | File finder, live grep, and more                         |
-| [**Neo-tree**](https://github.com/nvim-neo-tree/neo-tree.nvim)                           | A modern file explorer                                   |
-| [**Treesitter**](https://github.com/nvim-treesitter/nvim-treesitter)                     | Syntax highlighting and code parsing                     |
-| [**Lualine**](https://github.com/nvim-lualine/lualine.nvim)                              | Status line with useful info                             |
-| [**None-LS**](https://github.com/nvimtools/none-ls.nvim)                                 | Integrate linters/formatters with ease                   |
-| [**Mason**](https://github.com/mason-org/mason.nvim)                                     | Install/manage LSPs, DAPs, and tools                     |
-| [**mason-lspconfig**](https://github.com/mason-org/mason-lspconfig.nvim)                 | Bridge between Mason and LSP                             |
-| [**mason-tool-installer**](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) | Auto-install language tools                              |
-| [**nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig)                           | Configure built-in LSP support                           |
-| [**nvim-cmp**](https://github.com/hrsh7th/nvim-cmp)                                      | Autocompletion engine                                    |
-| [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)                                       | Snippet engine                                           |
-| [**todo-comments**](https://github.com/folke/todo-comments.nvim)                         | Highlight and search TODO/FIXME/etc                      |
-| [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim)                          | Customizable start screen                                |
-| [**windsurf**](https://github.com/Exafunction/windsurf.nvim)                             | Ai integration for Nvim                                  |
-| [**noice**](https://github.com/folke/noice.nvim)                                         | Better notifications                                     |
-| [**which-key**](https://github.com/folke/which-key.nvim)                                 | Show key mappings                                        |
-| [**toggleterm**](https://github.com/folke/which-key.nvim)                                | Terminal integration                                     |
+| Plugin                                                                                   | Purpose                                |
+| ---------------------------------------------------------------------------------------- | -------------------------------------- |
+| [**catppuccin**](https://github.com/catppuccin/nvim)                                     | Aesthetic and clean color scheme       |
+| [**Comment.nvim**](https://github.com/numToStr/Comment.nvim)                             | Easy code commenting with motions      |
+| [**Telescope**](https://github.com/nvim-telescope/telescope.nvim)                        | File finder, live grep, and more       |
+| [**Neo-tree**](https://github.com/nvim-neo-tree/neo-tree.nvim)                           | A modern file explorer                 |
+| [**Treesitter**](https://github.com/nvim-treesitter/nvim-treesitter)                     | Syntax highlighting and code parsing   |
+| [**Lualine**](https://github.com/nvim-lualine/lualine.nvim)                              | Status line with useful info           |
+| [**None-LS**](https://github.com/nvimtools/none-ls.nvim)                                 | Integrate linters/formatters with ease |
+| [**Mason**](https://github.com/mason-org/mason.nvim)                                     | Install/manage LSPs, DAPs, and tools   |
+| [**mason-lspconfig**](https://github.com/mason-org/mason-lspconfig.nvim)                 | Bridge between Mason and LSP           |
+| [**mason-tool-installer**](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) | Auto-install language tools            |
+| [**nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig)                           | Configure built-in LSP support         |
+| [**nvim-cmp**](https://github.com/hrsh7th/nvim-cmp)                                      | Autocompletion engine                  |
+| [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)                                       | Snippet engine                         |
+| [**todo-comments**](https://github.com/folke/todo-comments.nvim)                         | Highlight and search TODO/FIXME/etc    |
+| [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim)                          | Customizable start screen              |
+| [**windsurf**](https://github.com/Exafunction/windsurf.nvim)                             | Ai integration for Nvim                |
+| [**noice**](https://github.com/folke/noice.nvim)                                         | Better notifications                   |
+| [**which-key**](https://github.com/folke/which-key.nvim)                                 | Show key mappings                      |
+| [**toggleterm**](https://github.com/folke/which-key.nvim)                                | Terminal integration                   |
+| [**autopairs**](https://github.com/windwp/nvim-autopairs)                                | Auto-close quotes, brackets, etc.      |
 
 ---
 
