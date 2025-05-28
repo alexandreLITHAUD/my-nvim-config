@@ -9,5 +9,7 @@ vim.opt.numberwidth = 4 -- Minimal number of columns for line numbers
 vim.opt.signcolumn = "yes" -- Always show sign column
 vim.opt.cursorline = true -- Highlight the line where the cursor is
 
+vim.opt.timeoutlen = 1000
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.opt.termguicolors = true

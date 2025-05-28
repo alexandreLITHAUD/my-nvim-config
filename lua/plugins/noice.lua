@@ -23,13 +23,13 @@ return {
 					enabled = true,
 				},
 			},
-			-- you can enable a preset for easier configuration
+			-- FIXED: Disabled problematic presets
 			presets = {
-				bottom_search = true, -- use a classic bottom cmdline for search
-				command_palette = true, -- position the cmdline and popupmenu together
-				long_message_to_split = true, -- long messages will be sent to a split
-				inc_rename = false, -- enables an input dialog for inc-rename.nvim
-				lsp_doc_border = true, -- add a border to hover docs and signature help
+				bottom_search = false, -- CHANGED: was true, can interfere with key handling
+				command_palette = false, -- CHANGED: was true, major cause of key timing issues
+				long_message_to_split = true,
+				inc_rename = false,
+				lsp_doc_border = true,
 			},
 			routes = {
 				{
@@ -40,6 +40,21 @@ return {
 					},
 					opts = { skip = true },
 				},
+				-- -- ADDED: Don't interfere with macro recording messages
+				-- {
+				-- 	filter = {
+				-- 		event = "msg_show",
+				-- 		find = "recording",
+				-- 	},
+				-- 	opts = { skip = true },
+				-- },
+				-- {
+				-- 	filter = {
+				-- 		event = "msg_show",
+				-- 		find = "record",
+				-- 	},
+				-- 	opts = { skip = true },
+				-- },
 			},
 			views = {
 				cmdline_popup = {
@@ -72,7 +87,6 @@ return {
 				},
 			},
 		})
-
 		-- Customize notify
 		require("notify").setup({
 			background_colour = "#000000",
@@ -80,7 +94,6 @@ return {
 			stages = "fade",
 			timeout = 3000,
 		})
-
 		-- Set up custom highlights for noice
 		-- Try to get colors from your existing theme or config
 		local colors
@@ -103,7 +116,6 @@ return {
 				red = "#e06c75",
 			}
 		end
-
 		-- Define highlight groups
 		local highlights = {
 			NoiceCmdlinePopup = { bg = colors.bg, fg = colors.fg },
@@ -112,25 +124,21 @@ return {
 			NoiceCmdlineIcon = { fg = colors.yellow },
 			NoiceConfirm = { bg = colors.bg, fg = colors.fg },
 			NoiceConfirmBorder = { bg = colors.bg, fg = colors.green },
-
 			-- Message highlights
 			NoiceMessageText = { fg = colors.fg },
 			NoiceMessageTextError = { fg = colors.red },
 			NoiceMessageTextWarning = { fg = colors.yellow },
 			NoiceMessageTextInfo = { fg = colors.blue },
-
 			-- Popupmenu highlights
 			NoicePopupmenu = { bg = colors.bg },
 			NoicePopupmenuBorder = { bg = colors.bg, fg = colors.blue },
 			NoicePopupmenuMatch = { fg = colors.blue, bold = true },
 			NoicePopupmenuSelected = { bg = colors.darkblue, bold = true },
 		}
-
 		-- Apply highlights
 		for group, opts in pairs(highlights) do
 			vim.api.nvim_set_hl(0, group, opts)
 		end
-
 		-- Make sure telescope extension is loaded
 		-- This assumes telescope is already set up in your config
 		local telescope_ok, telescope = pcall(require, "telescope")
