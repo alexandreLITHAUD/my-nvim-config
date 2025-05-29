@@ -12,6 +12,12 @@ To run this configuration properly, you’ll need a few tools and a Nerd Font. I
 - [ripgrep](https://github.com/BurntSushi/ripgrep) – for Telescope search
 - [curl](https://github.com/curl/curl) – for plugin installation and updates
 - [git](https://github.com/git/git) – for pulling plugins
+- [unzip](https://github.com/LuaDist/unzip) - for certain plugins
+- [nodejs](https://github.com/nodejs/node) - for certain plugins
+- [python3](https://www.python.org/downloads/) - for pythonbased plugins
+- [go](https://github.com/golang/go) - for gobased plugins
+
+Everything can be automatically installed using the nix flake in the repo and do the `nix develop <path to folder> --impure`
 
 ---
 
