@@ -89,5 +89,8 @@ return {
 
 		-- Add Noice custom keymaps
 		which_key.add(require("keymaps.noice").keys)
+
+		-- Add LazyGit custom keymaps
+		which_key.add(require("keymaps.lazygit").keys)
 	end,
 }
