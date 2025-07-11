@@ -92,5 +92,8 @@ return {
 
 		-- Add LazyGit custom keymaps
 		which_key.add(require("keymaps.lazygit").keys)
+
+		-- Add Sops custom keymaps
+		which_key.add(require("keymaps.sops").keys)
 	end,
 }
