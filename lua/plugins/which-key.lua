@@ -95,5 +95,8 @@ return {
 
 		-- Add Sops custom keymaps
 		which_key.add(require("keymaps.sops").keys)
+
+		-- Add Gitsigns custom keymaps
+		which_key.add(require("keymaps.gitsigns").keys())
 	end,
 }
