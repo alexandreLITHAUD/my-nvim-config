@@ -98,5 +98,8 @@ return {
 
 		-- Add Gitsigns custom keymaps
 		which_key.add(require("keymaps.gitsigns").keys())
+
+		-- Add Harpoon custom keymaps
+		which_key.add(require("keymaps.harpoon").keys())
 	end,
 }

@@ -3,8 +3,9 @@ local M = {}
 
 M.keys = {
 	{
-		{ "<leader>ee", vim.cmd.SopsEncrypt, desc = "[E]ncrypt [F]ile" },
-		{ "<leader>ed", vim.cmd.SopsDecrypt, desc = "[D]ecrypt [F]ile" },
+		{ "<leader>d", group = "Sops actions" },
+		{ "<leader>de", vim.cmd.SopsEncrypt, desc = "[E]ncrypt [F]ile" },
+		{ "<leader>dd", vim.cmd.SopsDecrypt, desc = "[D]ecrypt [F]ile" },
 	},
 }
 
