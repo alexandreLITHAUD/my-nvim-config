@@ -7,8 +7,8 @@ return {
 	end,
 	config = function()
 		local which_key = require("which-key")
-
 		which_key.setup({
+			preset = "modern", -- Use modern preset which includes most sensible defaults
 			plugins = {
 				marks = true,
 				registers = true,
@@ -26,79 +26,64 @@ return {
 					g = true,
 				},
 			},
-			key_labels = {
-				-- override the label used to display some keys. It doesn't effect WK in any other way.
+			-- New replace option instead of key_labels
+			replace = {
 				["<space>"] = "SPC",
 				["<cr>"] = "RET",
 				["<tab>"] = "TAB",
 			},
-			window = {
+			-- New win option instead of window
+			win = {
 				border = "single", -- none, single, double, shadow
-				position = "bottom", -- bottom, top
-				margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-				padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-				winblend = 0,
+				padding = { 0, 1, 0, 1 }, -- extra window padding [top, right, bottom, left]
+				wo = {
+					winblend = 0,
+				},
 			},
 			layout = {
-				height = { min = 4, max = 25 }, -- min and max height of the columns
+				height = { min = 4, max = 15 }, -- min and max height of the columns
 				width = { min = 20, max = 50 }, -- min and max width of the columns
 				spacing = 3, -- spacing between columns
 				align = "left", -- align columns left, center or right
 			},
-			ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-			hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+			-- New filter option instead of ignore_missing
+			filter = function(mapping)
+				-- Return true to show the mapping
+				return true
+			end,
 			show_help = true, -- show help message on the command line when the popup is visible
-			triggers = "auto", -- automatically setup triggers
-			-- triggers = {"<leader>"} -- or specify a list manually
-			triggers_blacklist = {
-				-- list of mode / prefixes that should never be hooked by WhichKey
-				-- this is mostly relevant for key maps that start with a native binding
-				-- most people should not need to change this
-				i = { "j", "k" },
-				v = { "j", "k" },
+			-- New triggers format - must be a table
+			triggers = {
+				{ "<auto>", mode = "nxsot" },
 			},
 		})
-
 		-- Add vim core custom keymaps
 		which_key.add(require("keymaps.vim-core").keys)
-
 		-- Add telescope custom keymaps
 		which_key.add(require("keymaps.telescope").keys)
-
 		-- Add comment custom keymaps
 		which_key.add(require("keymaps.comment").keys)
-
 		-- Add auto-completion custom keymaps
 		which_key.add(require("keymaps.completion").keys)
-
 		-- Add Neotree custom keymaps
 		which_key.add(require("keymaps.neo-tree").keys)
-
 		-- Add ToggleTerm custom keymaps
 		which_key.add(require("keymaps.toggleterm").keys)
-
 		-- Add LSP Config custom keymaps
 		which_key.add(require("keymaps.lsp").lsp_keys)
 		which_key.add(require("keymaps.lsp").tlsp_keys)
-
 		-- Add Snippets custom keymaps
 		which_key.add(require("keymaps.snippets").keys)
-
 		-- Add TodoComments custom keymaps
 		which_key.add(require("keymaps.todo-comments").keys)
-
 		-- Add Noice custom keymaps
 		which_key.add(require("keymaps.noice").keys)
-
 		-- Add LazyGit custom keymaps
 		which_key.add(require("keymaps.lazygit").keys)
-
 		-- Add Sops custom keymaps
 		which_key.add(require("keymaps.sops").keys)
-
 		-- Add Gitsigns custom keymaps
 		which_key.add(require("keymaps.gitsigns").keys())
-
 		-- Add Harpoon custom keymaps
 		which_key.add(require("keymaps.harpoon").keys())
 	end,
