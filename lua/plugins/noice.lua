@@ -89,11 +89,23 @@ return {
 		})
 		-- Customize notify
 		require("notify").setup({
-			background_colour = "#000000",
-			render = "minimal",
-			stages = "fade",
-			timeout = 3000,
+        background_colour = "#000000",
+        fps = 60,
+        icons = {
+          DEBUG = "",
+          ERROR = "",
+          INFO = "",
+          TRACE = "✎",
+          WARN = "",
+        },
+        level = 2,
+        minimum_width = 50,
+        render = "compact", -- default, minimal, simple, compact
+        stages = "fade_in_slide_out", -- fade, slide, fade_in_slide_out, static
+        timeout = 3000,
+        top_down = true,
 		})
+
 		-- Set up custom highlights for noice
 		-- Try to get colors from your existing theme or config
 		local colors
