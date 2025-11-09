@@ -4,8 +4,8 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-        flavour = "mocha", -- latte, frappe, macchiato, mocha
-        transparent_background = true, -- Less opacity as you requested
+        flavour = "mocha", -- keep mocha but enhance it
+        transparent_background = false, -- Better color vibrancy
         show_end_of_buffer = false,
         term_colors = true,
         dim_inactive = {
@@ -18,20 +18,29 @@ return {
         no_underline = false,
         styles = {
           comments = { "italic" },
-          conditionals = { "italic" },
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
+          conditionals = { "italic", "bold" },
+          loops = { "bold" },
+          functions = { "bold" },
+          keywords = { "italic" },
+          strings = { "italic" },
           variables = {},
-          numbers = {},
-          booleans = {},
+          numbers = { "bold" },
+          booleans = { "bold" },
           properties = {},
-          types = {},
+          types = { "bold" },
           operators = {},
         },
         color_overrides = {},
-        custom_highlights = {},
+        custom_highlights = function(colors)
+          return {
+            ["@function"] = { fg = colors.blue, style = { "bold" } },
+            ["@function.call"] = { fg = colors.blue, style = { "bold" } },
+            ["@keyword"] = { fg = colors.mauve, style = { "italic", "bold" } },
+            ["@string"] = { fg = colors.green, style = { "italic" } },
+            ["@type"] = { fg = colors.yellow, style = { "bold" } },
+            ["@constant"] = { fg = colors.peach, style = { "bold" } },
+          }
+        end,
         integrations = {
           cmp = true,
           gitsigns = true,
