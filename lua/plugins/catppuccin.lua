@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("catppuccin").setup({
         flavour = "mocha", -- keep mocha but enhance it
-        transparent_background = false, -- Better color vibrancy
+        transparent_background = true, 
         show_end_of_buffer = false,
         term_colors = true,
         dim_inactive = {
