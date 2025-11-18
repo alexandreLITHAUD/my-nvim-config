@@ -2,7 +2,7 @@
   description = "Flake for my Neovim configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -24,6 +24,11 @@
             curl
             git
             nodejs
+            lua
+            gcc
+            rustc
+            cargo
+            terraform
           ];
 
           shellHook = ''
