@@ -4,34 +4,59 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		local function windsurf_status()
-			-- Check if the module exists before trying to use it
-			local ok, virtual_text = pcall(require, "codeium.virtual_text")
+		local function copilot_status()
+			-- Check if copilot is available
+			local ok, copilot_api = pcall(require, "copilot.api")
 			if not ok then
 				return ""
 			end
 
-			local status = virtual_text.status()
+			-- Get copilot status
+			local status = copilot_api.status.data
 
-			-- For waiting state
-			if status.state == "waiting" then
-				return "󱙺 Searching..."
-
-			-- For idle state (no active suggestions)
-			elseif status.state == "idle" then
-				return " "
-
-			-- For when suggestions are available
-			elseif status.state == "completions" then
-				if status.total and status.total > 0 and status.current then
-					return string.format("󱙸 %d/%d", status.current, status.total)
+			-- Handle different states
+			if status.status == "InProgress" then
+				return "󱙺 Thinking..."
+			elseif status.status == "Normal" then
+				-- Check if there are active suggestions
+				local suggestion_ok, suggestion = pcall(require, "copilot.suggestion")
+				if suggestion_ok and suggestion.is_visible() then
+					return "󱙸 Ready"
 				else
-					return "󱙷 No suggestions"
+					return " "
 				end
-
-			-- Fallback
+			elseif status.status == "Warning" then
+				return "󱙷 Warning"
+			elseif status.status == "Error" then
+				return " Error"
 			else
 				return ""
+			end
+		end
+
+		local function copilot_color()
+			local ok, copilot_api = pcall(require, "copilot.api")
+			if not ok then
+				return {}
+			end
+
+			local status = copilot_api.status.data
+
+			if status.status == "InProgress" then
+				return { fg = "#bd93f9" } -- Purple for thinking
+			elseif status.status == "Normal" then
+				local suggestion_ok, suggestion = pcall(require, "copilot.suggestion")
+				if suggestion_ok and suggestion.is_visible() then
+					return { fg = "#50fa7b" } -- Green for suggestions available
+				else
+					return {} -- Default color when idle
+				end
+			elseif status.status == "Warning" then
+				return { fg = "#ffb86c" } -- Orange for warning
+			elseif status.status == "Error" then
+				return { fg = "#ff5555" } -- Red for error
+			else
+				return {}
 			end
 		end
 
@@ -59,19 +84,8 @@ return {
 				},
 				lualine_x = {
 					{
-						windsurf_status,
-						color = function()
-							local status = require("codeium.virtual_text").status()
-							if status.state == "waiting" then
-								return { fg = "#bd93f9" } -- Purple for waiting
-							elseif status.state == "completions" and status.total and status.total > 0 then
-								return { fg = "#50fa7b" } -- Green for suggestions
-							elseif status.state == "completions" then
-								return { fg = "#ff5555" } -- Red for no suggestions
-							else
-								return {} -- Default color
-							end
-						end,
+						copilot_status,
+						color = copilot_color,
 					},
 					"encoding",
 					"fileformat",
@@ -90,12 +104,19 @@ return {
 			},
 		})
 
-		-- Set up the refresh callback to update lualine whenever Windsurf status changes
-		local ok, virtual_text = pcall(require, "codeium.virtual_text")
-		if ok then
-			virtual_text.set_statusbar_refresh(function()
+		-- Set up auto-refresh for copilot status changes using autocmds
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "CopilotStatusChanged",
+			callback = function()
 				require("lualine").refresh()
-			end)
-		end
+			end,
+		})
+
+		-- Also refresh on insert mode changes to catch suggestion visibility changes
+		vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave", "CursorMovedI" }, {
+			callback = function()
+				require("lualine").refresh()
+			end,
+		})
 	end,
 }
