@@ -21,7 +21,7 @@ return {
 					"yamlls",
 					"dockerls",
 					"terraformls",
-          			"nil_ls",
+					"nil_ls",
 				},
 			})
 		end,
@@ -42,8 +42,8 @@ return {
 					"shfmt", -- Shell formatter
 					"clang-format", -- C/C++ formatter
 					"yamlfmt", -- Yaml formatter
-          			"nixfmt",  -- Nix formatter
-          			"nixpkgs-fmt", -- nixpkgs-fmt
+					"nixfmt", -- Nix formatter
+					"nixpkgs-fmt", -- nixpkgs-fmt
 					-- Linters
 					"golangci-lint", -- Go linter
 					"pylint", -- Python linter
