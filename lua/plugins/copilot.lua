@@ -25,7 +25,7 @@ return {
 				},
 			},
 			filetypes = {
-				["."] = true, -- Enable for all other filetypes by default
+				["*"] = true, -- Enable for all other filetypes by default
 			},
 			copilot_node_command = "node", -- Node.js version must be > 18.x
 			server_opts_overrides = {},
