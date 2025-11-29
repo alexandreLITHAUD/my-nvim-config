@@ -2,8 +2,9 @@
 
 ### On NixOS
 
-- [/] Mason package does not work due to the way NixOS handles dynamic libraries. A workaround is to use `nix-shell` with the appropriate libraries or use a different package manager.
-   - Workaround done by finding NixOs and disableing Mason in config if NixOS is detected. 
+- [x] Mason package does not work due to the way NixOS handles dynamic libraries.
+
+  - Workaround done by detecting NixOS though etc/os-release and disabling Mason in config if NixOS is detected. Then the lsp servers can be instialled globally through nixpkgs.
 
 - [ ] Tab does not work probably due to copilot extension conflicts. Needs investigation.
 
