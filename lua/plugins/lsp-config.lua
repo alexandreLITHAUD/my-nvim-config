@@ -1,27 +1,37 @@
 -- Detect if running on NixOS
 local function is_nixos()
+	-- Fallback: check /etc/os-release
 	local f = io.open("/etc/os-release", "r")
 	if f then
 		local content = f:read("*all")
 		f:close()
-		return content:match("ID=nixos") ~= nil
+		if content:match("ID=nixos") or content:match('ID="nixos"') then
+			return true
+		end
 	end
 	return false
 end
 
 local on_nixos = is_nixos()
 
+-- Debug: print the detection result
+print("NixOS detected: " .. tostring(on_nixos))
+
 return {
 	{
 		"williamboman/mason.nvim",
+		enabled = not on_nixos, -- Disable Mason on NixOS
 		build = ":MasonUpdate",
-    enable = not on_nixos,
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		enabled = not on_nixos, -- Disable on NixOS
+		dependencies = on_nixos and {} or {
+			"williamboman/mason.nvim",
+		},
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -42,29 +52,29 @@ return {
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		dependencies = {
+		enabled = not on_nixos, -- Disable on NixOS
+		dependencies = on_nixos and {} or {
 			"williamboman/mason.nvim",
 		},
-    enable = not on_nixos,
 		config = function()
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					-- Formatters
-					"black", -- Python formatter
-					"stylua", -- Lua formatter
-					"prettier", -- JS/TS/Web formatter
-					"goimports", -- Go imports formatter
-					"shfmt", -- Shell formatter
-					"clang-format", -- C/C++ formatter
-					"yamlfmt", -- Yaml formatter
-					"nixfmt", -- Nix formatter
-					"nixpkgs-fmt", -- nixpkgs-fmt
+					"black",
+					"stylua",
+					"prettier",
+					"goimports",
+					"shfmt",
+					"clang-format",
+					"yamlfmt",
+					"nixfmt",
+					"nixpkgs-fmt",
 					-- Linters
-					"golangci-lint", -- Go linter
-					"pylint", -- Python linter
-					"markdownlint", -- Markdown linter
-					"yamllint", -- YAML linter
-					"hadolint", -- Dockerfile linter
+					"golangci-lint",
+					"pylint",
+					"markdownlint",
+					"yamllint",
+					"hadolint",
 				},
 				auto_update = true,
 				run_on_start = true,
@@ -74,17 +84,16 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Add dependency for cmp-nvim-lsp
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
-
+			
 			-- Configure diagnostic display
 			vim.diagnostic.config({
-				virtual_text = true, -- Enable inline diagnostic messages
-				signs = true, -- Show signs in the sign column
-				underline = true, -- Underline diagnostics
+				virtual_text = true,
+				signs = true,
+				underline = true,
 				update_in_insert = false,
 				severity_sort = true,
 				float = {
@@ -94,17 +103,17 @@ return {
 					prefix = "",
 				},
 			})
-
+			
 			-- Change diagnostic symbols in the sign column
 			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
-
+			
 			-- Get capabilities for autocompletion
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
+			
 			local servers = {
 				lua_ls = {},
 				gopls = {},
@@ -155,9 +164,8 @@ return {
 				terraformls = {},
 				nil_ls = {},
 			}
-
+			
 			for name, config in pairs(servers) do
-				-- Add capabilities to each server configuration
 				config.capabilities = capabilities
 				lspconfig[name].setup(config)
 			end
