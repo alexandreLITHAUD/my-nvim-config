@@ -37,6 +37,10 @@ return {
 
 				-- Dockerfile
 				null_ls.builtins.diagnostics.hadolint, -- Linter
+
+				-- Nix
+				null_ls.builtins.formatting.nixfmt, -- Formatter
+				null_ls.builtins.formatting.nixpkgs_fmt, -- Formatter
 			},
 			-- Setup keybindings for formatting
 			on_attach = function(client, bufnr)
