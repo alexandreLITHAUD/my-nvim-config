@@ -1,7 +1,21 @@
+-- Detect if running on NixOS
+local function is_nixos()
+	local f = io.open("/etc/os-release", "r")
+	if f then
+		local content = f:read("*all")
+		f:close()
+		return content:match("ID=nixos") ~= nil
+	end
+	return false
+end
+
+local on_nixos = is_nixos()
+
 return {
 	{
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",
+    enable = not on_nixos,
 		config = function()
 			require("mason").setup()
 		end,
@@ -31,6 +45,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 		},
+    enable = not on_nixos,
 		config = function()
 			require("mason-tool-installer").setup({
 				ensure_installed = {
