@@ -39,10 +39,6 @@ return {
 					["@string"] = { fg = colors.green, style = { "italic" } },
 					["@type"] = { fg = colors.yellow, style = { "bold" } },
 					["@constant"] = { fg = colors.peach, style = { "bold" } },
-					-- Fix gitsigns word_diff highlights for transparent background
-					GitSignsAddInline = { bg = colors.green, fg = colors.base },
-					GitSignsChangeInline = { bg = colors.yellow, fg = colors.base },
-					GitSignsDeleteInline = { bg = colors.red, fg = colors.base },
 				}
 			end,
 			integrations = {

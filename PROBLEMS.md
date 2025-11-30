@@ -8,4 +8,4 @@
 
 - [ ] Tab does not work probably due to copilot extension conflicts. Needs investigation.
 
-- [ ] Random highlight coolor apprears on text probably due to gitsigns
+- [x] Random highlight coolor apprears on text probably due to gitsigns
