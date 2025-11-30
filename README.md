@@ -23,7 +23,8 @@ ______________________________________________________________________
 
 ## 🔌 Plugins
 
-All the pluhins I use are managed with [**lazy.nvim**](https://github.com/folke/lazy.nvim)
+All the plugins I use are managed with [**lazy.nvim**](https://github.com/folke/lazy.nvim)
+
 Here’s the list of plugins included in this setup:
 
 | Plugin | Purpose |
@@ -150,6 +151,11 @@ Here are the custom key mappings I use in this config:
 - `<C-e>` → Add file to harpoon2
 - `<C-d>` → Remove current file from harpoon2
 - `<leader>e` → Open harpoon2 quick menu
+
+### Sops
+
+- `<leader>dd` Decrypt current file with sops
+- `<leader>de` Encrypt current file with sops
 
 ### LazyGit
 
