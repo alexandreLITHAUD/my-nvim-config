@@ -6,6 +6,6 @@
 
   - Workaround done by detecting NixOS though etc/os-release and disabling Mason in config if NixOS is detected. Then the lsp servers can be instialled globally through nixpkgs.
 
-- [ ] Tab does not work probably due to copilot extension conflicts. Needs investigation.
+- [x] Tab does not work probably due to copilot extension conflicts. Needs investigation.
 
 - [x] Random highlight coolor apprears on text probably due to gitsigns
