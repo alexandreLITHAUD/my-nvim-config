@@ -19,7 +19,7 @@ To run this configuration properly, you’ll need a few tools and a Nerd Font. I
 
 Everything can be automatically installed using the nix flake in the repo and do the `nix develop <path to folder> --impure`
 
-______________________________________________________________________
+---
 
 ## 🔌 Plugins
 
@@ -27,41 +27,41 @@ All the plugins I use are managed with [**lazy.nvim**](https://github.com/folke/
 
 Here’s the list of plugins included in this setup:
 
-| Plugin | Purpose |
+| Plugin                                                                                   | Purpose                                                               |
 | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [**catppuccin**](https://github.com/catppuccin/nvim) | Aesthetic and clean color scheme |
-| [**Comment.nvim**](https://github.com/numToStr/Comment.nvim) | Easy code commenting with motions |
-| [**Telescope**](https://github.com/nvim-telescope/telescope.nvim) | File finder, live grep, and more |
-| [**Neo-tree**](https://github.com/nvim-neo-tree/neo-tree.nvim) | A modern file explorer |
-| [**Treesitter**](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting and code parsing |
-| [**Lualine**](https://github.com/nvim-lualine/lualine.nvim) | Status line with useful info |
-| [**None-LS**](https://github.com/nvimtools/none-ls.nvim) | Integrate linters/formatters with ease |
-| [**Mason**](https://github.com/mason-org/mason.nvim) | Install/manage LSPs, DAPs, and tools |
-| [**mason-lspconfig**](https://github.com/mason-org/mason-lspconfig.nvim) | Bridge between Mason and LSP |
-| [**mason-tool-installer**](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) | Auto-install language tools |
-| [**nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig) | Configure built-in LSP support |
-| [**nvim-cmp**](https://github.com/hrsh7th/nvim-cmp) | Autocompletion engine |
-| [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip) | Snippet engine |
-| [**todo-comments**](https://github.com/folke/todo-comments.nvim) | Highlight and search TODO/FIXME/etc |
-| [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim) | Customizable start screen |
-| [**noice**](https://github.com/folke/noice.nvim) | Better notifications |
-| [**which-key**](https://github.com/folke/which-key.nvim) | Show key mappings |
-| [**toggleterm**](https://github.com/folke/which-key.nvim) | Terminal integration |
-| [**autopairs**](https://github.com/windwp/nvim-autopairs) | Auto-close quotes, brackets, etc. |
-| [**toggleterm**](https://github.com/akinsho/toggleterm.nvim) | Enable to create terminal inside nvim |
-| [**sops**](https://github.com/lucidph3nx/nvim-sops) | Encrypt and decrypt sops files |
-| [**lazygit**](https://github.com/kdheepak/lazygit.nvim) | Enable to launch lazygit windows inside nvim |
-| [**harpoon**](https://github.com/ThePrimeagen/harpoon/tree/harpoon2) | Create hooks for files and shortcuts |
-| [**gitsigns**](https://github.com/lewis6991/gitsigns.nvim) | Add git annotations when file changes and non commited |
-| [**dashboard**](https://github.com/nvimdev/dashboard-nvim) | Add a main windows dashboard when launching nvim |
-| [**copilot**](https://github.com/zbirenbaum/copilot.lua) | Add copilot to nvim |
-| [**neoscroll**](https://github.com/karb94/neoscroll.nvim) | Add a smooth scroll to neovim |
-| [**ident-blockline**](https://github.com/lukas-reineke/indent-blankline.nvim) | Add blank line indent indicator |
-| [**windows**](https://github.com/anuvyklack/windows.nvim) | Automatically resize windows with nice animation |
-| [**Smooth Cursor**](https://github.com/gen740/SmoothCursor.nvim) | Add nice cursor movement and animation |
-| [**dressing**](https://github.com/stevearc/dressing.nvim) | Add nice windows looks (should be replace sometimes with snacks.nvim) |
+| [**catppuccin**](https://github.com/catppuccin/nvim)                                     | Aesthetic and clean color scheme                                      |
+| [**Comment.nvim**](https://github.com/numToStr/Comment.nvim)                             | Easy code commenting with motions                                     |
+| [**Telescope**](https://github.com/nvim-telescope/telescope.nvim)                        | File finder, live grep, and more                                      |
+| [**Neo-tree**](https://github.com/nvim-neo-tree/neo-tree.nvim)                           | A modern file explorer                                                |
+| [**Treesitter**](https://github.com/nvim-treesitter/nvim-treesitter)                     | Syntax highlighting and code parsing                                  |
+| [**Lualine**](https://github.com/nvim-lualine/lualine.nvim)                              | Status line with useful info                                          |
+| [**None-LS**](https://github.com/nvimtools/none-ls.nvim)                                 | Integrate linters/formatters with ease                                |
+| [**Mason**](https://github.com/mason-org/mason.nvim)                                     | Install/manage LSPs, DAPs, and tools                                  |
+| [**mason-lspconfig**](https://github.com/mason-org/mason-lspconfig.nvim)                 | Bridge between Mason and LSP                                          |
+| [**mason-tool-installer**](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) | Auto-install language tools                                           |
+| [**nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig)                           | Configure built-in LSP support                                        |
+| [**nvim-cmp**](https://github.com/hrsh7th/nvim-cmp)                                      | Autocompletion engine                                                 |
+| [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)                                       | Snippet engine                                                        |
+| [**todo-comments**](https://github.com/folke/todo-comments.nvim)                         | Highlight and search TODO/FIXME/etc                                   |
+| [**dashboard-nvim**](https://github.com/nvimdev/dashboard-nvim)                          | Customizable start screen                                             |
+| [**noice**](https://github.com/folke/noice.nvim)                                         | Better notifications                                                  |
+| [**which-key**](https://github.com/folke/which-key.nvim)                                 | Show key mappings                                                     |
+| [**toggleterm**](https://github.com/folke/which-key.nvim)                                | Terminal integration                                                  |
+| [**autopairs**](https://github.com/windwp/nvim-autopairs)                                | Auto-close quotes, brackets, etc.                                     |
+| [**toggleterm**](https://github.com/akinsho/toggleterm.nvim)                             | Enable to create terminal inside nvim                                 |
+| [**sops**](https://github.com/lucidph3nx/nvim-sops)                                      | Encrypt and decrypt sops files                                        |
+| [**lazygit**](https://github.com/kdheepak/lazygit.nvim)                                  | Enable to launch lazygit windows inside nvim                          |
+| [**harpoon**](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)                     | Create hooks for files and shortcuts                                  |
+| [**gitsigns**](https://github.com/lewis6991/gitsigns.nvim)                               | Add git annotations when file changes and non commited                |
+| [**dashboard**](https://github.com/nvimdev/dashboard-nvim)                               | Add a main windows dashboard when launching nvim                      |
+| [**copilot**](https://github.com/zbirenbaum/copilot.lua)                                 | Add copilot to nvim                                                   |
+| [**neoscroll**](https://github.com/karb94/neoscroll.nvim)                                | Add a smooth scroll to neovim                                         |
+| [**ident-blockline**](https://github.com/lukas-reineke/indent-blankline.nvim)            | Add blank line indent indicator                                       |
+| [**windows**](https://github.com/anuvyklack/windows.nvim)                                | Automatically resize windows with nice animation                      |
+| [**Smooth Cursor**](https://github.com/gen740/SmoothCursor.nvim)                         | Add nice cursor movement and animation                                |
+| [**dressing**](https://github.com/stevearc/dressing.nvim)                                | Add nice windows looks (should be replace sometimes with snacks.nvim) |
 
-______________________________________________________________________
+---
 
 ## 🧠 LSPs and Tools
 
@@ -85,7 +85,7 @@ I also use formatters and linters via `none-ls`. You can find the full list in [
 
 When you want to add a new LSP, formatter or linter, you should add it to the none-ls configuration so it can be used in the best condition whether you install it with Mason or not.
 
-______________________________________________________________________
+---
 
 ## 🎹 Keymaps
 
@@ -105,7 +105,7 @@ Here are the custom key mappings I use in this config:
 
 ### 🌳 Neo-tree
 
-- `<leader>z` → Toggle file tree
+- `<leader>z` → Toggle file tree on or off
 - `v` → Vertical split
 - `s` → Horizontal split
 
@@ -115,12 +115,20 @@ Here are the custom key mappings I use in this config:
 
 ### 🧠 LSP
 
-- `<leader>ck` → Show hover documentation
-- `<leader>cr` → Rename symbol
-- `<leader>ca` → Code actions
-- `<leader>cf` → Format buffer
-- `<leader>ce` → Show diagnostics
+- `<leader>cd` → Go to definition
+- `<leader>cD` → Go to declaration
+- `<leader>cr` → Go to references
+- `<leader>ci` → Go to implementation
 - `<leader>ct` → Go to type definition
+- `<leader>cs` → Document symbols
+- `<leader>cS` → Workspace symbols
+- `<leader>ce` → Show line diagnostics
+- `<leader>cw` → All diagnostics
+- `<leader>ca` → Code action
+- `<leader>cn` → Rename symbol
+- `<leader>cf` → Format document
+- `<leader>ck` → Hover documentation
+- `<leader>cg` → Signature help
 
 ### 🤖 Autocompletion
 
@@ -152,16 +160,16 @@ Here are the custom key mappings I use in this config:
 - `<C-d>` → Remove current file from harpoon2
 - `<leader>e` → Open harpoon2 quick menu
 
-### Sops
+### 🔒 Sops
 
 - `<leader>dd` Decrypt current file with sops
 - `<leader>de` Encrypt current file with sops
 
-### LazyGit
+### 🔧 LazyGit
 
 - `<leader>g` → Open LazyGit in a terminal window
 
-### Navigation
+### 🔍 Navigation
 
 - `<leader>h` → Move to left window
 - `<leader>j` → Move to bottom window
@@ -172,9 +180,17 @@ Here are the custom key mappings I use in this config:
 - `<leader>r<left>` → Resize window left
 - `<leader>r<down>` → Resize window down
 
-______________________________________________________________________
+### 🔄 Buffer Management
 
-## NixOS Specifics
+- `<leader><leader>` → Switch to last used Buffer
+- `<leader>bb` → List all open Buffers
+- `<leader>bd` → Close current Buffer
+- `<leader>bD` → Close all Buffers except current
+- `<leader>bx` → Close all Buffers but keep window
+
+---
+
+## ❄️ NixOS Specifics
 
 I mainly use NixOS as my operating system. Therefore, if you're using NixOS, you might want to disable Mason's automatic installation of LSPs, formatters, and linters since I manage these tools through Nix packages.
 
@@ -224,13 +240,13 @@ Here is the all the tools Mason would install that you need to install via Nix i
 }
 ```
 
-______________________________________________________________________
+---
 
 ### ⚙️ Vim Basics
 
 Default Vim keymaps and other core bindings are defined in [`lua/vim-keymaps.lua`](./lua/vim-keymaps.lua).
 
-______________________________________________________________________
+---
 
 ## 💡 Final Note
 

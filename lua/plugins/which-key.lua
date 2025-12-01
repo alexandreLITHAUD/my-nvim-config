@@ -71,7 +71,7 @@ return {
 		which_key.add(require("keymaps.toggleterm").keys)
 		-- Add LSP Config custom keymaps
 		which_key.add(require("keymaps.lsp").lsp_keys)
-		which_key.add(require("keymaps.lsp").tlsp_keys)
+		-- which_key.add(require("keymaps.lsp").tlsp_keys)
 		-- Add Snippets custom keymaps
 		which_key.add(require("keymaps.snippets").keys)
 		-- Add TodoComments custom keymaps
@@ -86,5 +86,7 @@ return {
 		which_key.add(require("keymaps.gitsigns").keys())
 		-- Add Harpoon custom keymaps
 		which_key.add(require("keymaps.harpoon").keys())
+		-- Buffer custom keymaps
+		which_key.add(require("keymaps.buffers").keys)
 	end,
 }

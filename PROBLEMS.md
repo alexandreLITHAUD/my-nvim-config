@@ -11,8 +11,8 @@
 
 ### General
 
-- [ ] leader z remove the tree if it is open, otherwise open the tree. Currently it always opens the tree.
+- [x] leader z remove the tree if it is open, otherwise open the tree. Currently it always opens the tree.
 
-- [ ] Correct shortcuts for file navigation in lsp definition to use leader instad of base shortcuts.
+- [x] Correct shortcuts for file navigation in lsp definition to use leader instad of base shortcuts.
 
-- [ ] Add shortcuts to :e# to switch between last two files.
+- [x] Add shortcuts to :e# to switch between last two files.

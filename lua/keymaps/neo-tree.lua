@@ -2,7 +2,7 @@
 local M = {}
 
 M.keys = {
-	{ "<leader>z", ":Neotree filesystem reveal left<CR>", desc = "Toggle NeoTree" },
+	{ "<leader>z", ":Neotree toggle reveal left<CR>", desc = "Toggle NeoTree" },
 }
 
 return M
