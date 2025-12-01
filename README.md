@@ -97,11 +97,6 @@ Here are the custom key mappings I use in this config:
 
 - `<leader>a` → Find files
 - `<leader>f` → Live grep
-- `gd` → Go to definition
-- `gr` → Go to references
-- `gi` → Go to implementation
-- `gs` → Document symbols
-- `gS` → Workspace symbols
 
 ### 🌳 Neo-tree
 
