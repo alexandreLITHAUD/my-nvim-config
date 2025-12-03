@@ -9,6 +9,8 @@ vim.opt.numberwidth = 4 -- Minimal number of columns for line numbers
 vim.opt.signcolumn = "yes" -- Always show sign column
 vim.opt.cursorline = true -- Highlight the line where the cursor is
 
+vim.loader.enable() -- Enable the Lua module loader for better performance
+
 vim.opt.timeoutlen = 1000
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
