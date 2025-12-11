@@ -93,6 +93,21 @@ The configuration of the keymaps are dealt with which-key.nvim and are defined i
 
 Here are the custom key mappings I use in this config:
 
+### 📂 General Keymaps to remember
+
+- `<leader>` → Leader key (spacebar)
+- `escape` → Exit insert mode
+- `K` → Launch man page for word under Cursor
+- `:!<command>` → Run shell command
+- `:r !<command>` → Insert output of shell command into file at cursor position
+- `:w` → Save files
+- `:q` → Quit current window
+- `:wq` → Save and quit current window
+- `:qa` → Quit all windows
+- `:e <file>` → Open file
+- `:e .` → Open current directory in file explorer
+- `:%s/old/new/g` → Replace all occurrences of "old" with "new" in the current file
+
 ### 🔭 Telescope
 
 - `<leader>a` → Find files
