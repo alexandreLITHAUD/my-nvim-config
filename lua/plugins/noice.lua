@@ -23,6 +23,9 @@ return {
 					enabled = true,
 				},
 			},
+			messages = {
+				enabled = false, -- Disable message interception
+			},
 			-- FIXED: Disabled problematic presets
 			presets = {
 				bottom_search = false, -- CHANGED: was true, can interfere with key handling
@@ -40,6 +43,16 @@ return {
 					},
 					opts = { skip = true },
 				},
+				-- {
+				-- 	filter = {
+				-- 		event = "msg_show",
+				-- 		any = {
+				-- 			{ find = "^:!" },
+				-- 			{ find = "shell" },
+				-- 		},
+				-- 	},
+				-- 	view = "cmdline_output",
+				-- },
 				-- -- ADDED: Don't interfere with macro recording messages
 				-- {
 				-- 	filter = {
@@ -89,21 +102,21 @@ return {
 		})
 		-- Customize notify
 		require("notify").setup({
-        background_colour = "#000000",
-        fps = 60,
-        icons = {
-          DEBUG = "",
-          ERROR = "",
-          INFO = "",
-          TRACE = "✎",
-          WARN = "",
-        },
-        level = 2,
-        minimum_width = 50,
-        render = "compact", -- default, minimal, simple, compact
-        stages = "fade_in_slide_out", -- fade, slide, fade_in_slide_out, static
-        timeout = 3000,
-        top_down = true,
+			background_colour = "#000000",
+			fps = 60,
+			icons = {
+				DEBUG = "",
+				ERROR = "",
+				INFO = "",
+				TRACE = "✎",
+				WARN = "",
+			},
+			level = 2,
+			minimum_width = 50,
+			render = "compact", -- default, minimal, simple, compact
+			stages = "fade_in_slide_out", -- fade, slide, fade_in_slide_out, static
+			timeout = 3000,
+			top_down = true,
 		})
 
 		-- Set up custom highlights for noice

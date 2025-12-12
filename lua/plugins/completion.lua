@@ -77,6 +77,14 @@ return {
 				}, {
 					{ name = "cmdline" },
 				}),
+				-- Disable completion for commands with '!'
+				enabled = function()
+					local cmd = vim.fn.getcmdline()
+					if cmd:find("!") then
+						return false
+					end
+					return true
+				end,
 			})
 			require("keymaps.completion").setup()
 		end,

@@ -32,6 +32,19 @@ M.keys = {
 	{ "<C-c>", '"+y', desc = "Copy to clipboard", mode = "v" },
 	{ "<leader>y", '"+y', desc = "Copy to clipboard", mode = "v" },
 	{ "<C-a>", "gg0vG$", desc = "Select all", mode = { "n", "v" } },
+
+	-- Shell command operations
+	{
+		"<leader>!",
+		function()
+			local cmd = vim.fn.input("! ")
+			if cmd ~= "" then
+				vim.cmd("!" .. cmd)
+			end
+		end,
+		desc = "Run shell command",
+		mode = "n",
+	},
 }
 
 return M

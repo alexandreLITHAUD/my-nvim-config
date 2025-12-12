@@ -16,3 +16,8 @@
 - [x] Correct shortcuts for file navigation in lsp definition to use leader instad of base shortcuts.
 
 - [x] Add shortcuts to :e# to switch between last two files.
+
+- [x] Commands with ! doesnt work properly. Needs investigation.
+  - like :!ls or :!echo "test"
+  - Also commands with :r ! crash the command line
+  - this prevent Overseer from working properly
